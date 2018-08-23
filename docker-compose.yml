@@ -6,7 +6,7 @@ services:
       - "50694:80"
     networks:
       - mynet 
-    image: seleniumvstsui
+    image: seleniumvstssui
     build:
       context: .
       dockerfile: SeleniumVSTS.UI/Dockerfile
