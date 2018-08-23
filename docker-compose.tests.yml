@@ -22,7 +22,7 @@ services:
   seleniumvststests:
     image: seleniumvststests
     environment:
-      - appHost=seleniumvsts.ui 
+      - appHost=http://seleniumvsts.ui
       - urlNodeChorme=http://seleniumhub:4444
     build:
       context: .
