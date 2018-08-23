@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SeleniumVSTS.UI.Models.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoId)
+            </td>
+            <td class="produto">
+                @Html.DisplayFor(modelItem => item.Produto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProdutoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProdutoId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

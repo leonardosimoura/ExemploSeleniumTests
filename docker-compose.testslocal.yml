@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  seleniumhub:
+    image: selenium/hub:3.11.0-californium
+    ports:
+      - "4444:4444"
+    networks:
+      - mynet 
+  seleniumchrome:
+    image: selenium/node-chrome:3.11.0-californium
+    environment:
+      - HUB_HOST=seleniumhub
+      - HUB_PORT=4444
+    networks:
+      - mynet 
+    depends_on:
+      - seleniumhub
+  seleniumvsts.ui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  seleniumvsts.uitests:
+    image: seleniumvsts.uitests
+    environment:
+      - appHost=http://seleniumvsts.ui
+      - urlNodeChorme=http://seleniumhub:4444
+    build:
+      context: .
+      dockerfile: SeleniumVSTS.UITests/Dockerfile
+    networks:
+      - mynet 
+    entrypoint:  dotnet test /src/SeleniumVSTS.UITests/SeleniumVSTS.UITests.csproj
+    volumes:
+      - ./Screenshots/:/src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/Screenshots/
+      - ./TestsResults/:/var/temp/
+    depends_on:
+      - seleniumvsts.ui    
+      - seleniumhub
+      - seleniumchrome
