@@ -17,11 +17,11 @@ services:
     depends_on:
       - seleniumhub
   seleniumvsts.ui:
-    image: "seleniumvstssui:${BUILD_BUILDID}"
+    image: "seleniumvstssui:$(Build.BuildId)"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
   seleniumvststests:
-    image: "seleniumvststests:${BUILD_BUILDID}"
+    image: "seleniumvststests:$(Build.BuildId)"
     environment:
       - appHost=http://seleniumvsts.ui
       - urlNodeChorme=http://seleniumhub:4444
