@@ -17,6 +17,7 @@ services:
     depends_on:
       - seleniumhub
   seleniumvsts.ui:
+    image: seleniumvstssui:${Build.BuildId}"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
   seleniumvststests:
