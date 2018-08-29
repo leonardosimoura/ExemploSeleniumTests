@@ -17,10 +17,16 @@ services:
     depends_on:
       - seleniumhub
   seleniumvsts.ui:
+    build:
+      context: .
+      dockerfile: SeleniumVSTS.UI/Dockerfile
     image: "leonardosimoura/seleniumvstssui:$BUILD_BUILDID"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
   seleniumvststests:
+    build:
+      context: .
+      dockerfile: SeleniumVSTS.UITests/Dockerfile
     image: "seleniumvststests:$BUILD_BUILDID"
     environment:
       - appHost=http://seleniumvsts.ui
