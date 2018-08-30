@@ -31,6 +31,7 @@ services:
     environment:
       - appHost=http://seleniumvsts.ui
       - urlNodeChorme=http://seleniumhub:4444
+      - usehub=S
     networks:
       - mynet 
     entrypoint:  dotnet test /src/SeleniumVSTS.UITests --logger trx --results-directory /var/temp

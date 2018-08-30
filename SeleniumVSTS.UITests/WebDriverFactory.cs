@@ -15,22 +15,24 @@ namespace SeleniumVSTS.UITests
         {
             try
             {
-                IWebDriver webDriver = null;
-                var opt = new ChromeOptions();  
-                webDriver = new RemoteWebDriver(new Uri(UrlNodeChorme + "/wd/hub"), opt.ToCapabilities());
-                return webDriver;
+                if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("usehub")))
+                {
+                    IWebDriver webDriver = null;
+                    var opt = new ChromeOptions();
+                    webDriver = new RemoteWebDriver(new Uri(UrlNodeChorme + "/wd/hub"), opt.ToCapabilities());
+                    return webDriver;
+                }
+                else
+                {
+                    IWebDriver webDriver = null;
+                    webDriver = new ChromeDriver(Directory.GetCurrentDirectory());
+                    return webDriver;
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception(UrlNodeChorme + "/wd/hub", ex);
+                throw;
             }
         }
-
-        //public static IWebDriver CreateWebDriver()
-        //{
-        //    IWebDriver webDriver = null;
-        //    webDriver = new ChromeDriver(Directory.GetCurrentDirectory());
-        //    return webDriver;
-        //}
     }
 }
