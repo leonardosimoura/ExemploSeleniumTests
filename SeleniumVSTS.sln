@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - UI", "0 - UI", "{A0A178
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B0B7CD4B-72EE-4A73-AA90-CFAD19E3AF1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumVSTS.UI", "SeleniumVSTS.UI\SeleniumVSTS.UI.csproj", "{DE6B1433-E83C-4B5B-859C-4EA51EBE1EB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumVSTS.UI", "SeleniumVSTS.UI\SeleniumVSTS.UI.csproj", "{DE6B1433-E83C-4B5B-859C-4EA51EBE1EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumVSTS.UITests", "SeleniumVSTS.UITests\SeleniumVSTS.UITests.csproj", "{E2BB6F1B-5F1A-498D-AF3D-F3F345D44F68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumVSTS.UITests", "SeleniumVSTS.UITests\SeleniumVSTS.UITests.csproj", "{E2BB6F1B-5F1A-498D-AF3D-F3F345D44F68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B57CE21E-878F-4CD4-B4DC-1A2074A949DA}"
 	ProjectSection(SolutionItems) = preProject
