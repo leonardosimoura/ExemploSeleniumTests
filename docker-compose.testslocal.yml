@@ -17,6 +17,9 @@ services:
     depends_on:
       - seleniumhub
   seleniumvsts.ui:
+    build:
+      context: .
+      dockerfile: SeleniumVSTS.UI/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
   seleniumvsts.uitests:
@@ -24,15 +27,16 @@ services:
     environment:
       - appHost=http://seleniumvsts.ui
       - urlNodeChorme=http://seleniumhub:4444
+      - usehub=S
     build:
       context: .
       dockerfile: SeleniumVSTS.UITests/Dockerfile
     networks:
       - mynet 
-    entrypoint:  dotnet test /src/SeleniumVSTS.UITests/SeleniumVSTS.UITests.csproj
+    entrypoint:  dotnet test /src/SeleniumVSTS.UITests/SeleniumVSTS.UITests.csproj -l trx -r /src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/TestsResults/
     volumes:
       - ./Screenshots/:/src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/Screenshots/
-      - ./TestsResults/:/var/temp/
+      - ./TestsResults/:/src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/TestsResults/
     depends_on:
       - seleniumvsts.ui    
       - seleniumhub

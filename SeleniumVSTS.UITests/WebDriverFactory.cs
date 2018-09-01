@@ -25,7 +25,7 @@ namespace SeleniumVSTS.UITests
                 else
                 {
                     IWebDriver webDriver = null;
-                    webDriver = new ChromeDriver(Directory.GetCurrentDirectory());
+                    webDriver = new ChromeDriver();
                     return webDriver;
                 }
             }

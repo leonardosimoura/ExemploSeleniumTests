@@ -34,10 +34,10 @@ services:
       - usehub=S
     networks:
       - mynet 
-    entrypoint:  dotnet test /src/SeleniumVSTS.UITests --logger trx --results-directory /var/temp
+    entrypoint:  dotnet test /src/SeleniumVSTS.UITests -l trx -r /src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/TestsResults/
     volumes:
       - ./Screenshots/:/src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/Screenshots/
-      - ./TestsResults/:/var/temp/
+      - ./TestsResults/:/src/SeleniumVSTS.UITests/bin/Debug/netcoreapp2.1/TestsResults/
     depends_on:
       - seleniumvsts.ui   
       - seleniumhub
