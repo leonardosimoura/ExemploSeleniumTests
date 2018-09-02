@@ -42,3 +42,6 @@ services:
       - seleniumvsts.ui   
       - seleniumhub
       - seleniumchrome
+networks:
+  mynet:
+   name: mynet
