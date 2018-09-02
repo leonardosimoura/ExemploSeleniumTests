@@ -23,6 +23,8 @@ services:
     image: "leonardosimoura/seleniumvstssui:$BUILD_BUILDID"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - mynet 
   seleniumvststests:
     build:
       context: .

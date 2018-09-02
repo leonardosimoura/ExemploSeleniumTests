@@ -2,12 +2,9 @@ version: '3.5'
 
 services:
   seleniumvsts.ui:  
-    ports:
-      - "50694:80"
     networks:
       - mynet 
     image: seleniumvstssui
     ports:
       - "50694:80"
       - "50695:443"
-

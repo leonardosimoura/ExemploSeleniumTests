@@ -22,6 +22,8 @@ services:
       dockerfile: SeleniumVSTS.UI/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - mynet 
   seleniumvsts.uitests:
     image: seleniumvsts.uitests
     environment:
