@@ -7,10 +7,10 @@ namespace SeleniumVSTS.UITests
 {
     public class ProdutoTests
     {
-        string url = @"http://seleniumvsts.ui";
+        string url = Environment.GetEnvironmentVariable("appHost");
         public ProdutoTests()
         {
-            url = Environment.GetEnvironmentVariable("appHost");
+
         }
 
         [Theory]
