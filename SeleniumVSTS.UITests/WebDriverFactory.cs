@@ -10,7 +10,7 @@ namespace SeleniumVSTS.UITests
 {
     public static class WebDriverFactory
     {
-        static string UrlNodeChorme = Environment.GetEnvironmentVariable("urlNodeChorme");
+        static string UrlSeleniumGrid = Environment.GetEnvironmentVariable("urlSeleniumGrid");
         public static IWebDriver CreateWebDriver()
         {
             try
@@ -19,7 +19,7 @@ namespace SeleniumVSTS.UITests
                 {
                     IWebDriver webDriver = null;
                     var opt = new ChromeOptions();
-                    webDriver = new RemoteWebDriver(new Uri(UrlNodeChorme + "/wd/hub"), opt.ToCapabilities());
+                    webDriver = new RemoteWebDriver(new Uri(UrlSeleniumGrid + "/wd/hub"), opt.ToCapabilities());
                     return webDriver;
                 }
                 else

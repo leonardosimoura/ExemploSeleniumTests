@@ -32,7 +32,7 @@ services:
     image: "seleniumvststests:$BUILD_BUILDID"
     environment:
       - appHost=http://seleniumvsts.ui
-      - urlNodeChorme=http://seleniumhub:4444
+      - urlSeleniumGrid=http://seleniumhub:4444
       - usehub=S
     networks:
       - mynet 

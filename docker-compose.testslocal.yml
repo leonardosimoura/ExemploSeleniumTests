@@ -28,7 +28,7 @@ services:
     image: seleniumvsts.uitests
     environment:
       - appHost=http://seleniumvsts.ui
-      - urlNodeChorme=http://seleniumhub:4444
+      - urlSeleniumGrid=http://seleniumhub:4444
       - usehub=S
     build:
       context: .
